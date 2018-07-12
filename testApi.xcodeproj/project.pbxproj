@@ -13,6 +13,7 @@
 		FBEE372C20E5D8A5000CF398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBEE372B20E5D8A5000CF398 /* Assets.xcassets */; };
 		FBEE372F20E5D8A5000CF398 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBEE372D20E5D8A5000CF398 /* LaunchScreen.storyboard */; };
 		FBEE373220E5D8A5000CF398 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEE373120E5D8A5000CF398 /* main.m */; };
+		FBEE373E20E5D965000CF398 /* NSData+KKAES.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEE373B20E5D965000CF398 /* NSData+KKAES.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,10 @@
 		FBEE372E20E5D8A5000CF398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBEE373020E5D8A5000CF398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBEE373120E5D8A5000CF398 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FBEE373920E5D965000CF398 /* CodeObfuscation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeObfuscation.h; sourceTree = "<group>"; };
+		FBEE373B20E5D965000CF398 /* NSData+KKAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+KKAES.m"; sourceTree = "<group>"; };
+		FBEE373C20E5D965000CF398 /* NSData+KKAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+KKAES.h"; sourceTree = "<group>"; };
+		FBEE373D20E5D965000CF398 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +47,7 @@
 		FBEE371620E5D8A3000CF398 = {
 			isa = PBXGroup;
 			children = (
+				FBEE373820E5D965000CF398 /* Utilities */,
 				FBEE372120E5D8A3000CF398 /* testApi */,
 				FBEE372020E5D8A3000CF398 /* Products */,
 			);
@@ -69,6 +75,25 @@
 				FBEE373120E5D8A5000CF398 /* main.m */,
 			);
 			path = testApi;
+			sourceTree = "<group>";
+		};
+		FBEE373820E5D965000CF398 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FBEE373920E5D965000CF398 /* CodeObfuscation.h */,
+				FBEE373A20E5D965000CF398 /* AESCipher */,
+				FBEE373D20E5D965000CF398 /* PrefixHeader.pch */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FBEE373A20E5D965000CF398 /* AESCipher */ = {
+			isa = PBXGroup;
+			children = (
+				FBEE373B20E5D965000CF398 /* NSData+KKAES.m */,
+				FBEE373C20E5D965000CF398 /* NSData+KKAES.h */,
+			);
+			path = AESCipher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +168,7 @@
 			files = (
 				FBEE372720E5D8A3000CF398 /* ViewController.m in Sources */,
 				FBEE373220E5D8A5000CF398 /* main.m in Sources */,
+				FBEE373E20E5D965000CF398 /* NSData+KKAES.m in Sources */,
 				FBEE372420E5D8A3000CF398 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +246,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -272,7 +298,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -286,13 +312,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D85BP56YL6;
 				INFOPLIST_FILE = testApi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xm.testApi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -303,13 +330,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D85BP56YL6;
 				INFOPLIST_FILE = testApi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xm.testApi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
